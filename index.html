@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baratão da Carne · Parcerias</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Há 33 anos na mesa das famílias de Manaus. Conheça o Baratão da Carne e seja nosso parceiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#FAF8F5;
+  --fundo-alt:#F2EEE9;
+  --superficie:#FFFFFF;
+  --texto:#171212;
+  --texto-suave:#665E5B;
+  --linha:#E4DED8;
+  --acento:#D80800;
+  --acento-escuro:#A90600;
+  --raio:6px;
+  --raio-foto:8px;
+  --max:1240px;
+  --lateral:clamp(20px,5vw,72px);
+  --secao:clamp(88px,11vw,144px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Montserrat,system-ui,sans-serif;font-weight:400;color:var(--texto);background:var(--fundo);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--lateral)}
+section{padding:var(--secao) 0}
+.alt{background:var(--fundo-alt)}
+
+/* tipografia */
+.legenda{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-suave)}
+h1,h2{font-weight:300;letter-spacing:-.025em;line-height:1.08}
+h1 strong,h2 strong{font-weight:600}
+h2{font-size:clamp(2rem,3.6vw,3rem);margin-top:20px}
+h3{font-size:1.125rem;font-weight:600;letter-spacing:-.01em}
+p{color:var(--texto-suave)}
+.texto-grande{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:36em}
+
+/* rascunho: contorna o que falta preencher (tire a classe "rascunho" do body para publicar) */
+.rascunho .pend{outline:1.5px dashed #E0A100;outline-offset:3px;border-radius:3px}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem;padding:16px 32px;border-radius:var(--raio);transition:background .2s,color .2s,border-color .2s}
+.btn-primario{background:var(--acento);color:#fff}
+.btn-primario:hover{background:var(--acento-escuro)}
+.link-seta{font-weight:600;font-size:.95rem;display:inline-flex;gap:8px;align-items:center;border-bottom:1px solid currentColor;padding-bottom:2px}
+.link-seta span,.btn span{transition:transform .2s}
+.link-seta:hover span,.btn:hover span{transform:translateX(3px)}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+
+/* navegação */
+.topo{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.topo.claro{background:rgba(250,248,245,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom-color:var(--linha)}
+.topo:not(.claro) .logo-v{display:none}.topo.claro .logo-b{display:none}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.topo img{height:36px;width:auto}
+.topo nav{display:flex;gap:36px;align-items:center;font-size:.9rem;font-weight:500}
+.topo nav a:not(.btn){color:#fff;transition:color .2s;padding:12px 0}
+.topo.claro nav a:not(.btn){color:var(--texto-suave)}
+.topo.claro nav a:not(.btn):hover{color:var(--texto)}
+.topo .btn{padding:11px 22px;font-size:.875rem}
+@media (max-width:860px){.topo nav a:not(.btn){display:none}.topo img{height:30px}}
+
+/* hero */
+.hero{padding:clamp(56px,8vw,104px) 0 0}
+.hero-grade{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.75rem);margin:24px 0 28px}
+.hero .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:32px;margin-top:44px}
+.hero-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--raio-foto)}
+.numeros{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(64px,8vw,112px);border-top:1px solid var(--linha)}
+.numeros li{padding:32px 24px 0 0}
+.numeros strong{display:block;font-size:clamp(1.9rem,3vw,2.5rem);font-weight:300;letter-spacing:-.02em;line-height:1.1}
+.numeros span{display:block;margin-top:6px;font-size:.875rem;color:var(--texto-suave)}
+@media (max-width:860px){
+  .hero-grade{grid-template-columns:1fr}
+  .hero-foto{order:-1}
+  .hero-foto img{aspect-ratio:4/3.4}
+  .numeros{grid-template-columns:1fr 1fr;row-gap:8px}
+}
+
+/* cabeçalho de seção: título à esquerda, apoio à direita */
+.cabeca{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+@media (max-width:860px){.cabeca{grid-template-columns:1fr;gap:20px}}
+
+/* quem somos */
+.quem-fotos{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px}
+.quem-fotos img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--raio-foto)}
+.quem-fotos img:first-child{aspect-ratio:auto}
+.marcos{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:clamp(48px,6vw,72px)}
+.marcos li{border-top:1px solid var(--linha);padding-top:20px}
+.marcos h3{margin-bottom:8px}
+.marcos p{font-size:.95rem}
+@media (max-width:760px){.quem-fotos{grid-template-columns:1fr 1fr}.quem-fotos img:first-child{grid-column:span 2;aspect-ratio:16/10}.marcos{grid-template-columns:1fr;gap:28px}}
+
+/* fundadores */
+.donos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,56px)}
+.dono{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:32px;align-items:end;padding-top:32px;border-top:1px solid var(--linha)}
+.dono .retrato{aspect-ratio:4/5;border-radius:var(--raio-foto);background:var(--fundo-alt);display:grid;place-items:center;color:var(--texto-suave);font-size:.8rem;font-weight:500;overflow:hidden}
+.dono .retrato img{width:100%;height:100%;object-fit:cover}
+.dono h3{font-size:1.375rem}
+.dono .cargo{font-size:.9rem;margin-top:4px}
+.dono blockquote{margin-top:20px;padding-left:20px;border-left:2px solid var(--acento);font-weight:300;font-style:italic;font-size:1.05rem;color:var(--texto);max-width:30em}
+@media (max-width:960px){.donos{grid-template-columns:1fr;gap:48px}}
+@media (max-width:480px){.dono{grid-template-columns:1fr}.dono .retrato{max-width:240px}}
+
+/* por que o Baratão */
+.motivos{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(40px,6vw,96px)}
+.motivos li{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--linha)}
+.motivos li:nth-last-child(-n+2){border-bottom:1px solid var(--linha)}
+@media (max-width:860px){.motivos{grid-template-columns:1fr}.motivos li:nth-last-child(2){border-bottom:0}}
+@media (max-width:520px){.motivos li{grid-template-columns:1fr;gap:8px}}
+.foto-larga{margin-top:clamp(56px,7vw,96px);display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.foto-larga img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--raio-foto)}
+.foto-larga figure:last-child img{aspect-ratio:auto}
+.foto-larga figcaption{font-size:.8rem;color:var(--texto-suave);margin-top:12px}
+@media (max-width:760px){.foto-larga{grid-template-columns:1fr}.foto-larga figure:last-child{display:none}}
+
+/* parcerias */
+.formatos{list-style:none;border-top:1px solid var(--texto)}
+.formatos a{display:grid;grid-template-columns:1fr 1.3fr 40px;gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid var(--linha);transition:color .2s}
+.formatos h3{font-size:clamp(1.25rem,2vw,1.6rem);font-weight:400;letter-spacing:-.02em;transition:color .2s}
+.formatos .ir{justify-self:end;color:var(--texto-suave);transition:transform .2s,color .2s}
+.formatos a:hover h3,.formatos a:hover .ir{color:var(--acento)}
+.formatos a:hover .ir{transform:translateX(4px)}
+@media (max-width:760px){.formatos a{grid-template-columns:1fr 24px;gap:8px 16px}.formatos p{grid-row:2}.formatos .ir{grid-row:1/3;grid-column:2}}
+
+/* equipe */
+.equipe{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.equipe img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--raio-foto)}
+@media (max-width:760px){.equipe{grid-template-columns:1fr 1fr}}
+
+/* contato */
+.contato{background:var(--acento);color:#fff}
+.contato p,.contato .legenda{color:#fff}
+.contato-grade{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(48px,8vw,120px);align-items:start}
+.contato h2{font-size:clamp(2.2rem,4.4vw,3.6rem)}
+.contato .texto-grande{margin:24px 0 40px}
+.contato .btn-branco{background:#fff;color:var(--acento)}
+.contato .btn-branco:hover{background:#FFE9E7}
+.canais{list-style:none;border-top:1px solid rgba(255,255,255,.45)}
+.canais li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.45)}
+.canais small{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding-top:3px}
+.canais a,.canais span{font-weight:500}
+.canais a:hover{text-decoration:underline;text-underline-offset:4px}
+.contato .rascunho .pend,.rascunho .contato .pend{outline-color:#fff}
+@media (max-width:860px){.contato-grade{grid-template-columns:1fr}}
+@media (max-width:420px){.canais li{grid-template-columns:1fr;gap:4px}}
+
+footer{padding:40px 0;font-size:.85rem;color:var(--texto-suave)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:28px;width:auto}
+
+/* entrada suave */
+.surge{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.surge.visivel{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.surge{opacity:1;transform:none;transition:none}}
+
+/* ===== PRÉVIA: recursos interativos ===== */
+.faixa-previa{position:fixed;left:16px;bottom:16px;z-index:60;background:var(--texto);color:#fff;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;border-radius:var(--raio)}
+
+/* 1. etiquetas flutuantes no hero */
+.hero-foto{position:relative}
+.etiqueta{position:absolute;z-index:2;will-change:transform;transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  transform:translate(calc(var(--mx,0) * 1px), calc(var(--my,0) * 1px + var(--s,0) * var(--v,0) * 1px))}
+
+/* parallax do hero: --s = quanto o hero já rolou (px), definido no JS */
+.hero-texto{will-change:transform,opacity;transform:translateY(calc(var(--s,0) * .16px));opacity:calc(1 - var(--s,0) / 480)}
+.moldura{overflow:hidden;border-radius:var(--raio-foto);transform:translateY(calc(var(--s,0) * -.06px))}
+.moldura img{border-radius:0;will-change:transform;transform:translateY(calc(var(--s,0) * .14px)) scale(1.18)}
+.et-1{--v:-.32}.et-2{--v:-.16}.et-3{--v:-.48}
+@media (max-width:860px){.hero-texto{transform:none;opacity:1}.moldura{transform:none}}
+.etiqueta>div{background:var(--superficie);border:1px solid var(--linha);border-radius:var(--raio);padding:12px 16px;box-shadow:0 8px 28px rgba(23,18,18,.08);animation:pairar 7s ease-in-out infinite}
+.etiqueta small{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-suave)}
+.etiqueta b{display:block;font-weight:600;font-size:.95rem;margin-top:2px}
+.etiqueta .ponto{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acento);margin-right:8px;vertical-align:1px}
+/* faixa de pessoas (opção D) em "Nossa gente" */
+.faixa-gente{overflow:hidden;padding:8px 0 40px}
+.faixa{display:flex;width:max-content;gap:14px;animation:rolar 52s linear infinite}
+.faixa-gente:hover .faixa{animation-play-state:paused}
+.faixa figure{width:clamp(180px,18vw,250px);flex:none}
+.faixa figure:nth-child(odd){margin-top:36px}
+.faixa img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--raio-foto);transition:transform .4s ease}
+.faixa figure:hover img{transform:translateY(-8px)}
+@keyframes rolar{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .hero-texto,.moldura,.moldura img,.etiqueta{transform:none;opacity:1}
+  .faixa{animation:none;width:auto}.faixa-gente{overflow-x:auto}
+}
+
+.et-1{top:9%;left:-40px}
+.et-2{top:48%;right:-32px}.et-2>div{animation-delay:-2.3s}
+.et-3{bottom:7%;left:-24px}.et-3>div{animation-delay:-4.6s}
+@keyframes pairar{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (max-width:860px){.et-1{left:12px}.et-2{right:12px}.et-3{left:12px}.etiqueta>div{padding:9px 12px}}
+
+/* 5. título que se revela com a rolagem */
+.revela .p{color:#8F8682;transition:color .25s}
+.revela .p.on{color:var(--texto)}
+
+/* 2. pontos clicáveis na foto do CD */
+.mapa-foto{position:relative}
+.hotspot{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.hotspot button{width:32px;height:32px;border-radius:50%;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;position:relative}
+.hotspot button::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--acento);box-shadow:0 0 0 4px rgba(255,255,255,.85)}
+.hotspot button::after{content:"";position:absolute;inset:4px;border-radius:50%;border:2px solid #fff;animation:pulso 2.4s ease-out infinite}
+@keyframes pulso{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.6);opacity:0}}
+.hotspot .dica{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translate(-50%,6px);background:var(--superficie);color:var(--texto);border-radius:var(--raio);padding:10px 14px;width:max-content;max-width:220px;box-shadow:0 8px 28px rgba(23,18,18,.14);font-size:.85rem;line-height:1.4;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.hotspot .dica b{display:block;font-size:.9rem}
+.hotspot:hover .dica,.hotspot.aberto .dica,.hotspot button:focus-visible+.dica{opacity:1;transform:translate(-50%,0)}
+.foto-larga .instrucao{font-size:.8rem;color:var(--texto-suave);margin-top:12px}
+
+/* 7. seletor de parceria */
+.seletor{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.seletor button{font:inherit;font-weight:600;font-size:.95rem;padding:14px 22px;border-radius:var(--raio);border:1px solid var(--linha);background:var(--superficie);color:var(--texto);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.seletor button:hover{border-color:var(--texto)}
+.seletor button[aria-selected="true"]{background:var(--texto);color:#fff;border-color:var(--texto)}
+.painel{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);padding-top:40px;border-top:1px solid var(--texto);animation:entra .4s ease}
+.painel[hidden]{display:none}
+.painel h3{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:300;letter-spacing:-.02em;line-height:1.15}
+.painel h3 strong{font-weight:600}
+.painel ul{list-style:none}
+.painel li{padding:16px 0;border-bottom:1px solid var(--linha);display:flex;gap:14px}
+.painel li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--acento);margin-top:.6em}
+.painel .btn{margin-top:32px}
+@keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:760px){.painel{grid-template-columns:1fr}.seletor button{flex:1 1 calc(50% - 8px)}}
+
+.equipe>img{transition:transform .35s ease}
+.equipe>img:hover{transform:translateY(-4px)}
+
+/* nossas lojas */
+.lojas{display:grid;grid-template-columns:1fr 1.3fr;gap:16px}
+.lojas figure{position:relative;overflow:hidden;border-radius:var(--raio-foto)}
+.lojas img{width:100%;height:100%;aspect-ratio:5/4;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.lojas figure:hover img{transform:scale(1.04)}
+.lojas .vazio{aspect-ratio:5/4;height:100%;background:var(--fundo-alt);display:grid;place-items:center;color:var(--texto-suave);font-size:.85rem;font-weight:500}
+.lojas figcaption{position:absolute;left:16px;bottom:16px;background:var(--superficie);border-radius:var(--raio);padding:8px 12px;font-size:.8rem;font-weight:600;color:var(--texto)}
+@media (max-width:760px){.lojas{grid-template-columns:1fr}}
+
+/* barra de leitura + índice lateral */
+.progresso{position:fixed;top:0;left:0;right:0;height:2px;background:var(--acento);transform-origin:0 50%;transform:scaleX(0);z-index:70}
+.indice{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:2px}
+.indice a{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:6px 0;min-height:28px;font-size:.75rem;font-weight:600;color:var(--texto-suave)}
+.indice a span{opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;background:var(--superficie);color:var(--texto);padding:4px 8px;border-radius:4px;box-shadow:0 4px 16px rgba(23,18,18,.08)}
+.indice a::after{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor;transition:background .2s,transform .2s}
+.indice a:hover span,.indice a:focus-visible span{opacity:1;transform:none}
+.indice a.ativo{color:var(--acento)}.indice a.ativo::after{background:var(--acento);transform:scale(1.25)}
+.indice.no-vermelho a,.indice.no-vermelho a.ativo{color:#fff}.indice.no-vermelho a.ativo::after{background:#fff}
+@media (max-width:1180px){.indice{display:none}}
+
+/* WhatsApp flutuante que muda conforme a seção */
+.whats{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;background:var(--texto);color:#fff;padding:12px 18px 12px 14px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(23,18,18,.18);transition:transform .3s,opacity .3s}
+.whats svg{flex:none}
+.whats .assunto{max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.whats.some{opacity:0;transform:translateY(12px);pointer-events:none}
+@media (max-width:520px){.whats .assunto{max-width:170px}.faixa-previa{bottom:84px}}
+
+@media (prefers-reduced-motion:reduce){
+  .lojas img{transition:none}
+  .etiqueta,.etiqueta>div,.hotspot button::after,.painel{animation:none;transition:none}
+  .revela .p{color:var(--texto)}
+}
+
+/* ===== HERO IMERSIVO =====
+   --p  progresso suavizado da rolagem (0 → 1), vem do JS
+   --e  a foto sai da tela cheia e vira card (0–.5)
+   --c  fotos da equipe chegam ao redor (.25–.75)
+   --q  fotos de primeiro plano atravessam a tela (.05–.8)
+   --f  título final aparece (.55–.9)
+   --mx/--my  posição do mouse (-.5 a .5), suavizada
+   --cl/--ct/--cw/--ch  retângulo final do card (3:4, igual à foto: nenhum rosto cortado) */
+.hp{position:relative;height:300vh}
+.palco{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--fundo);
+  --e:clamp(0, calc(var(--p,0) / .5), 1);
+  --c:clamp(0, calc((var(--p,0) - .25) / .5), 1);
+  --q:clamp(0, calc((var(--p,0) - .05) / .75), 1);
+  --f:clamp(0, calc((var(--p,0) - .55) / .35), 1)}
+
+/* fundo desfocado da própria cena: preenche a tela sem cortar a foto principal */
+.desfoque{position:absolute;inset:-40px;background:#171212 url(img/padaria-desfoque.jpg) center/cover;opacity:calc(1 - var(--e));
+  transform:translate(calc(var(--mx,0) * 18px), calc(var(--my,0) * 12px)) scale(1.05)}
+
+/* foto principal: começa grande (cobrindo a tela) e encolhe até o card 3:4 */
+.recorte{position:absolute;inset:0;z-index:1;
+  clip-path:inset(calc(var(--ct) * var(--e)) calc(var(--ir) * var(--e)) calc(var(--ib) * var(--e)) calc(var(--cl) * var(--e)) round calc(var(--e) * 10px))}
+.foto{position:absolute;left:var(--cl);top:var(--ct);width:var(--cw);height:var(--ch);will-change:transform;
+  transform:translate(calc(var(--mx,0) * (1 - var(--e)) * -16px), calc(var(--ty0,0) * (1 - var(--e)) * 1px + var(--my,0) * (1 - var(--e)) * -10px))
+            scale(calc(var(--S,1) - (var(--S,1) - 1) * var(--e)))}
+.foto .entrada{width:100%;height:100%;animation:entrada 2.2s cubic-bezier(.2,.7,.2,1) both}
+.foto img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+@keyframes entrada{from{transform:scale(1.08);filter:brightness(.6)}to{transform:none;filter:none}}
+
+/* véu escuro para o título de abertura (some com a rolagem) */
+.veu{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:calc(1 - var(--e) * 1.4);
+  background:linear-gradient(to top,rgba(23,18,18,.88) 0%,rgba(23,18,18,.45) 42%,rgba(23,18,18,.1) 70%,rgba(23,18,18,.35) 100%)}
+
+/* título de abertura: sobe mais rápido que a página e some */
+.abertura{position:absolute;left:0;right:0;bottom:clamp(40px,9vh,96px);color:#fff;z-index:3;
+  transform:translate(calc(var(--mx,0) * 10px), calc(var(--e) * -160px));opacity:calc(1 - var(--e) * 2.4)}
+.abertura .legenda{color:#fff}
+.abertura h1{font-weight:300;letter-spacing:-.035em;line-height:1;font-size:clamp(2.8rem,8.4vw,8rem);margin-top:16px}
+.abertura h1 strong{font-weight:700}
+.abertura h1 .pal{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+.abertura h1 .pal>span{display:inline-block;animation:sobe 1.1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(.35s + var(--i) * .12s)}
+@keyframes sobe{from{transform:translateY(105%)}to{transform:none}}
+.abertura .legenda,.dica-rolar{animation:aparece 1s ease .2s both}
+@keyframes aparece{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.dica-rolar{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-size:.85rem;font-weight:600;animation-delay:1.2s}
+.dica-rolar i{width:1px;height:28px;background:#fff;animation:desce 1.8s ease-in-out infinite}
+@keyframes desce{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* fotos da equipe (3:4, iguais às fotos originais: sem cortar rostos) */
+.card{position:absolute;z-index:1;aspect-ratio:3/4;border-radius:var(--raio-foto);overflow:hidden;box-shadow:0 18px 40px rgba(23,18,18,.16);will-change:transform,opacity;
+  opacity:var(--c);
+  transform:translate(calc(var(--mx,0) * var(--z) * 1px), calc((1 - var(--c)) * var(--d) + var(--my,0) * var(--z) * 1px)) scale(calc(.86 + var(--c) * .14)) rotate(calc((1 - var(--c)) * var(--r)))}
+.card img{width:100%;height:100%;object-fit:cover}
+.k1{left:6%;top:15%;width:13%;--d:420px;--r:-5deg;--z:-14}
+.k2{left:13%;top:50%;width:11%;--d:640px;--r:4deg;--z:-22}
+.k3{right:6%;top:13%;width:12%;--d:560px;--r:5deg;--z:-18}
+.k4{right:12%;top:47%;width:13%;--d:760px;--r:-4deg;--z:-26}
+
+/* primeiro plano: atravessam a cena mais rápido que tudo (sensação de profundidade) */
+.passa{position:absolute;z-index:4;aspect-ratio:3/4;border-radius:var(--raio-foto);overflow:hidden;box-shadow:0 30px 60px rgba(23,18,18,.28);will-change:transform;
+  transform:translate(calc(var(--mx,0) * -40px), calc((1 - var(--q)) * 115vh - var(--q) * 75vh)) rotate(var(--r))}
+.passa img{width:100%;height:100%;object-fit:cover}
+.pa1{left:62%;width:17%;--r:3deg}
+.pa2{left:18%;width:15%;--r:-3deg;transform:translate(calc(var(--mx,0) * -32px), calc((1 - var(--q)) * 150vh - var(--q) * 50vh)) rotate(var(--r))}
+
+/* selo que conta de 0 a 33 com a rolagem */
+.selo{position:absolute;z-index:3;left:calc(var(--cl) - 36px);top:calc(var(--ct) + 28px);background:var(--superficie);border-radius:var(--raio);padding:10px 16px;box-shadow:0 10px 30px rgba(23,18,18,.14);
+  opacity:var(--c);transform:translateX(calc((1 - var(--c)) * -40px))}
+.selo small{display:block;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-suave)}
+.selo b{font-size:1.5rem;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+
+/* título final, abaixo do card */
+.final{position:absolute;left:0;right:0;top:calc(var(--ct) + var(--ch) + clamp(16px,3vh,32px));z-index:3;text-align:center;
+  opacity:var(--f);transform:translateY(calc((1 - var(--f)) * 48px));pointer-events:none}
+.final.ativo{pointer-events:auto}
+.final p.tit{color:var(--texto);font-weight:300;letter-spacing:-.03em;line-height:1.05;font-size:clamp(1.7rem,3.2vw,2.8rem)}
+.final p.tit strong{font-weight:700}
+.final .acoes{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;align-items:center;margin-top:20px}
+
+@media (max-width:760px){
+  .k1,.k3{display:none}
+  /* nas pontas do card, sobre pernas e letreiro: nunca sobre rostos nem sobre o título */
+  .k2{left:3%;top:calc(var(--ct) + var(--ch) * .64);width:23%;--z:-10}
+  .k4{right:3%;top:calc(var(--ct) + 6px);width:22%;--z:-10}
+  .pa2{display:none}
+  .pa1{left:52%;width:40%}
+  .selo{left:calc(var(--cl) + 10px);top:calc(var(--ct) + 10px)}
+  .final .acoes{gap:18px}
+}
+
+
+section.hp{padding:0}
+@media (max-width:520px){.abertura{bottom:150px}}
+.numeros-sec{padding:clamp(64px,8vw,112px) 0 0}
+.numeros-sec .numeros{margin-top:48px}
+/* sem animação: estado final direto, sem travar a rolagem */
+@media (prefers-reduced-motion:reduce){
+  .hp{height:auto}.palco{position:relative;min-height:100vh;--e:1;--c:1;--f:1;--q:1}
+  .passa{display:none}.final{pointer-events:auto}
+  .foto .entrada,.abertura h1 .pal>span,.abertura .legenda,.dica-rolar,.dica-rolar i{animation:none}
+}
+</style>
+</head>
+<body class="rascunho">
+
+<div class="progresso" id="progresso" aria-hidden="true"></div>
+<nav class="indice" id="indice" aria-label="Seções da página">
+  <a href="#inicio"><span>Início</span></a>
+  <a href="#quem-somos"><span>Quem somos</span></a>
+  <a href="#lojas"><span>Nossas lojas</span></a>
+  <a href="#fundadores"><span>Fundadores</span></a>
+  <a href="#parcerias"><span>Parcerias</span></a>
+  <a href="#contato"><span>Contato</span></a>
+</nav>
+<a class="whats pend" id="whats" target="_blank" rel="noopener">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.4A9 9 0 1 1 21 12z"/></svg>
+  <span class="assunto">Falar com o comercial</span>
+</a>
+<header class="topo" id="topo">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Baratão da Carne, início">
+      <img class="logo-b" src="img/logo-branca.png" alt="Baratão da Carne Supermercados" width="800" height="204">
+      <img class="logo-v" src="img/logo-vermelha.png" alt="Baratão da Carne Supermercados" width="800" height="204">
+    </a>
+    <nav aria-label="Principal">
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#fundadores">Fundadores</a>
+      <a href="#parcerias">Parcerias</a>
+      <a class="btn btn-primario" href="#contato">Seja parceiro</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hp" id="hero">
+    <div class="palco" id="palco">
+      <div class="desfoque" aria-hidden="true"></div>
+      <div class="recorte">
+        <div class="foto"><div class="entrada"><img src="img/padaria.jpg" alt="Equipe da padaria do Baratão da Carne" width="1200" height="1600" fetchpriority="high"></div></div>
+      </div>
+
+      <figure class="card k1"><img src="img/mini/caixa-sorriso.jpg" alt="" width="640" height="853" decoding="async"></figure>
+      <figure class="card k2"><img src="img/mini/p-04.jpg" alt="" width="640" height="853" decoding="async"></figure>
+      <figure class="card k3"><img src="img/mini/p-01.jpg" alt="" width="640" height="853" decoding="async"></figure>
+      <figure class="card k4"><img src="img/mini/equipe-hortifruti.jpg" alt="" width="640" height="853" decoding="async"></figure>
+
+      <div class="selo" aria-hidden="true"><small>Há</small><b><span id="conta">0</span> anos</b></div>
+
+      <div class="veu" aria-hidden="true"></div>
+      <div class="abertura">
+        <div class="wrap">
+          <p class="legenda">Supermercados · Manaus, AM</p>
+          <h1 id="titulo">33 anos <strong>de história.</strong></h1>
+          <span class="dica-rolar" aria-hidden="true"><i></i>Role para conhecer</span>
+        </div>
+      </div>
+
+      <figure class="passa pa1" aria-hidden="true"><img src="img/mini/p-06.jpg" alt="" width="640" height="853" decoding="async"></figure>
+      <figure class="passa pa2" aria-hidden="true"><img src="img/mini/p-09.jpg" alt="" width="640" height="853" decoding="async"></figure>
+
+      <div class="final" id="final">
+        <div class="wrap">
+          <p class="tit">Feita por pessoas. <strong>Aberta a parceiros.</strong></p>
+          <div class="acoes">
+            <a class="btn btn-primario" href="#contato">Quero ser parceiro <span aria-hidden="true">→</span></a>
+            <a class="link-seta" href="#quem-somos">Conheça a empresa</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="numeros-sec">
+    <div class="wrap">
+      <p class="texto-grande">Estamos na mesa das famílias de Manaus desde <span class="pend">[ano]</span>. Agora queremos crescer ao lado de marcas e empresas que acreditam no Amazonas.</p>
+      <ul class="numeros">
+        <li><strong data-conta="33">33</strong><span>anos de história</span></li>
+        <li><strong class="pend">00</strong><span>lojas em Manaus</span></li>
+        <li><strong class="pend">0.000</strong><span>colaboradores</span></li>
+        <li><strong class="pend">000 mil</strong><span>clientes por mês</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="quem-somos">
+    <div class="wrap">
+      <div class="cabeca surge">
+        <div>
+          <p class="legenda">Quem somos</p>
+          <h2 class="revela">Começamos no balcão do açougue. <strong>Hoje somos parte da cidade.</strong></h2>
+        </div>
+        <p class="texto-grande">Nascemos no bairro <span class="pend">[bairro]</span> com uma ideia simples: carne boa, preço justo e atendimento de vizinho. Crescemos com Manaus sem perder esse jeito.</p>
+      </div>
+      <div class="quem-fotos surge">
+        <img src="img/equipe-hortifruti.jpg" alt="Equipe do Baratão no setor de hortifrúti" loading="lazy" width="1200" height="1600">
+        <img src="img/caixa-sorriso.jpg" alt="Operadora de caixa sorrindo no atendimento" loading="lazy" width="1082" height="1442">
+        <img src="img/p-06.jpg" alt="Colaboradora em um corredor da loja" loading="lazy" width="1200" height="1600">
+      </div>
+      <ul class="marcos surge">
+        <li><h3>Preço justo</h3><p>O que trouxe o cliente na primeira visita e o faz voltar todo mês.</p></li>
+        <li><h3>Carne de qualidade</h3><p>Nossa origem e nossa especialidade, com padrão de açougue em cada loja.</p></li>
+        <li><h3>Gente cuidando de gente</h3><p>Equipe local, que conhece o bairro e chama o cliente pelo nome.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="lojas" style="padding-top:0">
+    <div class="wrap">
+      <div class="cabeca surge">
+        <div>
+          <p class="legenda">Nossas lojas</p>
+          <h2>De frente para a rua, <strong>de portas abertas.</strong></h2>
+        </div>
+        <p class="texto-grande">Lojas amplas, caixas rápidos e sinalização clara: o lugar onde a sua marca encontra o cliente.</p>
+      </div>
+      <div class="lojas surge">
+        <figure><div class="vazio pend">Foto da fachada · 5:4</div></figure>
+        <figure><img src="img/loja-interna.jpg" alt="Área dos caixas e corredor de uma loja do Baratão" loading="lazy" width="1600" height="1280"><figcaption>Por dentro da loja</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="fundadores">
+    <div class="wrap">
+      <div class="cabeca surge">
+        <div>
+          <p class="legenda">Fundadores</p>
+          <h2>Uma empresa familiar, <strong>com quem decide por perto.</strong></h2>
+        </div>
+        <p class="texto-grande">Os fundadores acompanham a operação de perto, todos os dias. Por isso a negociação é direta e a resposta é rápida.</p>
+      </div>
+      <div class="donos">
+        <article class="dono surge">
+          <div class="retrato pend">Foto do fundador · 4:5</div>
+          <div>
+          <h3 class="pend">[Nome do fundador]</h3>
+          <p class="cargo pend">Fundador e Diretor-Presidente</p>
+          <blockquote class="pend">“[Uma frase dele sobre a empresa ou sobre parceria.]”</blockquote>
+          </div>
+        </article>
+        <article class="dono surge">
+          <div class="retrato pend">Foto do sócio · 4:5</div>
+          <div>
+          <h3 class="pend">[Nome do sócio]</h3>
+          <p class="cargo pend">[Cargo]</p>
+          <blockquote class="pend">“[Uma frase curta.]”</blockquote>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cabeca surge">
+        <div>
+          <p class="legenda">Por que o Baratão</p>
+          <h2>Estrutura para <strong>crescer junto.</strong></h2>
+        </div>
+        <p class="texto-grande">O que um parceiro encontra aqui, do estoque à gôndola.</p>
+      </div>
+      <ul class="motivos surge">
+        <li><h3>Alcance</h3><p>Lojas em pontos de grande movimento de Manaus e clientes que compram com a gente há décadas.</p></li>
+        <li><h3>Logística própria</h3><p>Centro de distribuição e câmaras frias que abastecem toda a rede.</p></li>
+        <li><h3>Vitrine para marcas</h3><p>Pontos extras, telas nas lojas, degustações e redes sociais com público ativo.</p></li>
+        <li><h3>Relação direta</h3><p>A conversa é com quem decide, e a resposta não demora.</p></li>
+      </ul>
+      <div class="foto-larga surge">
+        <figure>
+          <div class="mapa-foto">
+            <img src="img/cd-fachada.jpg" alt="Pátio do centro de distribuição do Baratão" loading="lazy" width="1600" height="1067">
+            <div class="hotspot" style="left:38%;top:30%"><button aria-label="Armazenagem"></button><span class="dica" role="tooltip"><b>Armazenagem</b>Galpões que concentram o estoque da rede.</span></div>
+            <div class="hotspot" style="left:58%;top:54%"><button aria-label="Carga e descarga"></button><span class="dica" role="tooltip"><b>Carga e descarga</b>Pátio onde os caminhões abastecem as lojas.</span></div>
+            <div class="hotspot" style="left:25%;top:62%"><button aria-label="Equipe de logística"></button><span class="dica" role="tooltip"><b>Equipe de logística</b>Gente nossa do recebimento à entrega.</span></div>
+          </div>
+          <figcaption>Centro de distribuição Baratão · toque nos pontos para explorar</figcaption>
+        </figure>
+        <figure>
+          <div class="mapa-foto" style="height:100%">
+            <img src="img/cd-estoque.jpg" alt="Corredor de estoque do centro de distribuição" loading="lazy" width="1600" height="1067">
+            <div class="hotspot" style="left:52%;top:30%"><button aria-label="Câmara fria"></button><span class="dica" role="tooltip"><b>Câmara fria</b>Carnes armazenadas na temperatura certa até a loja.</span></div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="parcerias">
+    <div class="wrap">
+      <div class="cabeca surge">
+        <div>
+          <p class="legenda">Parcerias</p>
+          <h2>Como você quer <strong>crescer com a gente?</strong></h2>
+        </div>
+        <p class="texto-grande">Escolha seu perfil. A conversa no WhatsApp já começa pelo assunto certo.</p>
+      </div>
+      <div class="surge">
+        <div class="seletor" role="tablist" aria-label="Tipo de parceria">
+          <button role="tab" id="t-forn" aria-controls="p-forn" aria-selected="true">Fornecedor</button>
+          <button role="tab" id="t-trade" aria-controls="p-trade" aria-selected="false" tabindex="-1">Trade marketing</button>
+          <button role="tab" id="t-patro" aria-controls="p-patro" aria-selected="false" tabindex="-1">Patrocínio e eventos</button>
+          <button role="tab" id="t-comu" aria-controls="p-comu" aria-selected="false" tabindex="-1">Comunidade</button>
+        </div>
+        <div class="painel" role="tabpanel" id="p-forn" aria-labelledby="t-forn">
+          <div><h3>Seu produto <strong>na mesa de Manaus.</strong></h3><a class="btn btn-primario pend" data-msg="Olá! Sou fornecedor e quero conversar sobre colocar meus produtos no Baratão." target="_blank" rel="noopener">Conversar como fornecedor <span aria-hidden="true">→</span></a></div>
+          <ul><li>Espaço nas gôndolas de toda a rede</li><li>Logística própria, do CD até a loja</li><li>Negociação direta com quem decide</li></ul>
+        </div>
+        <div class="painel" role="tabpanel" id="p-trade" aria-labelledby="t-trade" hidden>
+          <div><h3>Sua marca <strong>onde o cliente decide.</strong></h3><a class="btn btn-primario pend" data-msg="Olá! Quero conversar sobre uma ação de trade marketing nas lojas do Baratão." target="_blank" rel="noopener">Propor uma ação <span aria-hidden="true">→</span></a></div>
+          <ul><li>Ponta de gôndola e pontos extras</li><li>Telas nas lojas e encarte</li><li>Degustação com equipe local</li></ul>
+        </div>
+        <div class="painel" role="tabpanel" id="p-patro" aria-labelledby="t-patro" hidden>
+          <div><h3>Junto nas datas <strong>que a cidade celebra.</strong></h3><a class="btn btn-primario pend" data-msg="Olá! Quero conversar sobre patrocínio de campanhas e eventos do Baratão." target="_blank" rel="noopener">Falar sobre patrocínio <span aria-hidden="true">→</span></a></div>
+          <ul><li>Campanhas do calendário comercial</li><li>Aniversário da rede</li><li>Ações com clientes nas lojas e redes sociais</li></ul>
+        </div>
+        <div class="painel" role="tabpanel" id="p-comu" aria-labelledby="t-comu" hidden>
+          <div><h3>Fazer bem <strong>para o bairro.</strong></h3><a class="btn btn-primario pend" data-msg="Olá! Tenho um projeto social e quero conversar sobre parceria com o Baratão." target="_blank" rel="noopener">Apresentar um projeto <span aria-hidden="true">→</span></a></div>
+          <ul><li>Projetos sociais nos bairros onde estamos</li><li>Nossa equipe envolvida na ação</li><li>Divulgação nas lojas e no Instagram</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cabeca surge">
+        <div>
+          <p class="legenda">Nossa gente</p>
+          <h2>Quem faz o Baratão <strong>todos os dias.</strong></h2>
+        </div>
+        <p class="texto-grande">Cada parceria chega ao cliente pelas mãos dessa equipe.</p>
+      </div>
+    </div>
+    <div class="faixa-gente" role="img" aria-label="Retratos da equipe do Baratão">
+      <div class="faixa" id="faixa"></div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato">
+    <div class="wrap contato-grade">
+      <div class="surge">
+        <p class="legenda">Contato comercial</p>
+        <h2>Os próximos 33 anos <strong>começam com bons parceiros.</strong></h2>
+        <p class="texto-grande">Conte o que você tem em mente. Nossa equipe responde em até <span class="pend">2 dias úteis</span>.</p>
+        <a class="btn btn-branco pend" href="https://wa.me/5592000000000" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="canais surge">
+        <li><small>E-mail</small><a class="pend" href="mailto:parcerias@exemplo.com.br">parcerias@exemplo.com.br</a></li>
+        <li><small>WhatsApp</small><span class="pend">(92) 0000-0000</span></li>
+        <li><small>Sede</small><span class="pend">[Endereço], Manaus – AM</span></li>
+        <li><small>Instagram</small><a href="https://www.instagram.com/somostodosbaratao/" target="_blank" rel="noopener">@somostodosbaratao</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-vermelha.png" alt="Baratão da Carne Supermercados" width="800" height="204" loading="lazy">
+    <span>© 2026 Baratão da Carne Supermercados · Essa marca é minha.</span>
+  </div>
+</footer>
+
+<script>
+  const topo = document.getElementById('topo');
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visivel'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.surge').forEach(el => io.observe(el));
+
+  /* ===== PRÉVIA ===== */
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const WHATS = 'https://wa.me/5592000000000'; // trocar pelo número real
+
+  // faixa de pessoas: lista duplicada para o fim emendar no começo sem pulo
+  (() => {
+    const fotos = ['p-01','p-04','caixa-sorriso','p-09','p-03','p-06','p-05','p-07','p-08','p-02'];
+    const faixa = document.getElementById('faixa');
+    [...fotos, ...fotos].forEach((n, i) => {
+      const f = document.createElement('figure');
+      f.innerHTML = `<img src="img/${n}.jpg" alt="" loading="lazy">`;
+      if (i >= fotos.length) f.setAttribute('aria-hidden', 'true');
+      faixa.appendChild(f);
+    });
+  })();
+
+  // hero imersivo (cena presa na tela enquanto rola)
+  {
+  const hp = document.getElementById('hero'), palco = document.getElementById('palco');
+  const final = document.getElementById('final'), conta = document.getElementById('conta');
+
+  // título entra palavra por palavra (o texto continua igual para leitores de tela)
+  (() => {
+    const h = document.getElementById('titulo'); let i = 0;
+    const quebrar = no => [...no.childNodes].forEach(n => {
+      if (n.nodeType !== 3) return quebrar(n);
+      const frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(w => {
+        if (!w) return;
+        if (/^\s+$/.test(w)) return frag.append(w);
+        const o = document.createElement('span'); o.className = 'pal';
+        const d = document.createElement('span'); d.textContent = w; d.style.setProperty('--i', i++);
+        o.append(d); frag.append(o);
+      });
+      n.replaceWith(frag);
+    });
+    quebrar(h);
+  })();
+
+  // calcula o card final (3:4 como a foto) e o quanto ampliar a foto no início
+  const medidas = () => {
+    const vw = palco.clientWidth, vh = palco.clientHeight, cel = vw <= 760;
+    const ct = cel ? 92 : 100;
+    const ch = cel ? Math.min(vw * .7 * 4 / 3, vh * .5) : Math.min(vh * .62, 640);
+    const cw = ch * .75, cl = (vw - cw) / 2;
+    const cobrir = Math.max(vw / cw, vh / ch);          // tamanho para cobrir a tela
+    const limite = vw / (cw * .9);                        // nunca cortar mais de 5% de cada lado (rostos das pontas)
+    const S = Math.min(cobrir, limite), H = ch * S, cy = ct + ch / 2;
+    let ty0;
+    if (H >= vh) {                                        // cobre a tela: centraliza a faixa dos rostos (~40% da altura da foto)
+      ty0 = vh * .5 - cy - (.42 - .5) * H;
+      const topoF = cy + ty0 - H / 2, baseF = cy + ty0 + H / 2;
+      if (topoF > 0) ty0 -= topoF; if (baseF < vh) ty0 += vh - baseF;
+    } else ty0 = vh * .44 - cy;                           // celular: foto inteira, um pouco acima do centro
+    const px = v => v.toFixed(1) + 'px';
+    Object.entries({'--cl':px(cl),'--ct':px(ct),'--cw':px(cw),'--ch':px(ch),'--ir':px(vw - cl - cw),'--ib':px(vh - ct - ch),'--S':S.toFixed(4),'--ty0':ty0.toFixed(1)})
+      .forEach(([k, v]) => palco.style.setProperty(k, v));
+  };
+
+  // rolagem e mouse suavizados (o movimento "alcança" o alvo aos poucos)
+  let alvo = 0, atual = 0, mx = 0, my = 0, amx = 0, amy = 0, rodando = false;
+  const pedir = () => { if (!rodando) { rodando = true; requestAnimationFrame(passo); } };
+  const medir = () => {
+    const total = hp.offsetHeight - innerHeight, r = hp.getBoundingClientRect();
+    alvo = Math.min(Math.max(-r.top / total, 0), 1);
+    topo.classList.toggle('claro', alvo > .14 || r.bottom < innerHeight);
+    pedir();
+  };
+  const passo = () => {
+    atual += (alvo - atual) * .12; amx += (mx - amx) * .08; amy += (my - amy) * .08;
+    const parado = Math.abs(alvo - atual) < .0005 && Math.abs(mx - amx) < .001 && Math.abs(my - amy) < .001;
+    if (parado) { atual = alvo; amx = mx; amy = my; }
+    palco.style.setProperty('--p', atual.toFixed(4));
+    palco.style.setProperty('--mx', amx.toFixed(4));
+    palco.style.setProperty('--my', amy.toFixed(4));
+    const c = Math.min(Math.max((atual - .25) / .5, 0), 1);
+    conta.textContent = Math.round(33 * c);
+    final.classList.toggle('ativo', atual > .8);
+    if (!parado) requestAnimationFrame(passo); else rodando = false;
+  };
+
+  // no celular a barra de endereço muda a altura ao rolar: só recalcula se a largura mudar ou a altura mudar muito
+  let largura = innerWidth, altura = innerHeight;
+  medidas();
+  addEventListener('resize', () => {
+    if (innerWidth === largura && Math.abs(innerHeight - altura) < 120) return medir();
+    largura = innerWidth; altura = innerHeight; medidas(); medir();
+  });
+  if (calmo) { topo.classList.add('claro'); conta.textContent = 33; }
+  else {
+    // teclado: se o foco cair nos botões finais antes de aparecerem, leva a rolagem até o fim da cena
+    final.addEventListener('focusin', () => {
+      if (atual < .8) { scrollTo(0, hp.offsetTop + hp.offsetHeight - innerHeight); alvo = atual = 1; pedir(); }
+    });
+    addEventListener('scroll', medir, {passive:true});
+    if (matchMedia('(pointer:fine)').matches) {
+      palco.addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; pedir(); });
+      palco.addEventListener('pointerleave', () => { mx = my = 0; pedir(); });
+    }
+    medir();
+  }
+  }
+
+  // 4. contador
+  const contar = el => {
+    const fim = +el.dataset.conta, t0 = performance.now();
+    const passo = t => { const k = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(fim * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(passo); };
+    requestAnimationFrame(passo);
+  };
+  const ioN = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (!calmo) contar(e.target); ioN.unobserve(e.target); } }), {threshold:.6});
+  document.querySelectorAll('[data-conta]').forEach(el => ioN.observe(el));
+
+  // 5. título revela palavra por palavra conforme a rolagem
+  document.querySelectorAll('.revela').forEach(h => {
+    const quebrar = no => [...no.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) frag.append(w); else { const s = document.createElement('span'); s.className = 'p'; s.textContent = w; frag.append(s); }
+        });
+        n.replaceWith(frag);
+      } else quebrar(n);
+    });
+    quebrar(h);
+    const ps = h.querySelectorAll('.p');
+    const atualizar = () => {
+      const r = h.getBoundingClientRect(), vh = innerHeight;
+      const k = Math.min(Math.max((vh * .85 - r.top) / (vh * .45), 0), 1);
+      const n = Math.round(k * ps.length);
+      ps.forEach((s, i) => s.classList.toggle('on', i < n));
+    };
+    if (!calmo) { addEventListener('scroll', atualizar, {passive:true}); atualizar(); }
+  });
+
+  // 2. pontos clicáveis (toque abre/fecha no celular)
+  document.querySelectorAll('.hotspot button').forEach(b => b.addEventListener('click', () => {
+    const h = b.parentElement, abrir = !h.classList.contains('aberto');
+    document.querySelectorAll('.hotspot.aberto').forEach(x => x.classList.remove('aberto'));
+    h.classList.toggle('aberto', abrir);
+  }));
+
+  // 7. seletor de parceria (abas acessíveis, setas do teclado)
+  const abas = [...document.querySelectorAll('.seletor [role=tab]')];
+  const ativar = a => {
+    abas.forEach(x => { const sel = x === a; x.setAttribute('aria-selected', sel); x.tabIndex = sel ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !sel; });
+  };
+  abas.forEach((a, i) => {
+    a.addEventListener('click', () => ativar(a));
+    a.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { const n = abas[(i + d + abas.length) % abas.length]; ativar(n); n.focus(); }
+    });
+  });
+  // barra de leitura
+  const barra = document.getElementById('progresso');
+  const ler = () => barra.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight)})`;
+  addEventListener('scroll', ler, {passive:true}); ler();
+
+  // índice lateral + WhatsApp que muda o assunto conforme a seção
+  const assuntos = {
+    hero: ['Falar com o comercial', 'Olá! Conheci o Baratão pela página de parcerias e quero conversar.'],
+    'quem-somos': ['Conhecer o Baratão', 'Olá! Quero conhecer melhor o Baratão para uma parceria.'],
+    lojas: ['Ação nas lojas', 'Olá! Quero conversar sobre uma ação nas lojas do Baratão.'],
+    fundadores: ['Falar com a diretoria', 'Olá! Gostaria de falar com a diretoria do Baratão sobre uma parceria.'],
+    parcerias: ['Propor parceria', 'Olá! Quero propor uma parceria com o Baratão.']
+  };
+  const whats = document.getElementById('whats'), rot = whats.querySelector('.assunto');
+  const indice = document.getElementById('indice'), links = [...indice.querySelectorAll('a')];
+  const setAssunto = id => {
+    const a = assuntos[id]; if (!a) return;
+    rot.textContent = a[0];
+    whats.href = WHATS + '?text=' + encodeURIComponent(a[1]);
+    whats.setAttribute('aria-label', 'WhatsApp: ' + a[0]);
+  };
+  setAssunto('hero');
+  const ioS = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const id = e.target.id, alvo = id === 'hero' ? '#inicio' : '#' + id;
+    links.forEach(l => l.classList.toggle('ativo', l.getAttribute('href') === alvo));
+    indice.classList.toggle('no-vermelho', id === 'contato');
+    whats.classList.toggle('some', id === 'contato');
+    setAssunto(id);
+  }), {rootMargin:'-45% 0px -50% 0px'});
+  ['hero','quem-somos','lojas','fundadores','parcerias','contato'].forEach(id => ioS.observe(document.getElementById(id)));
+
+  document.querySelectorAll('[data-msg]').forEach(b => b.href = WHATS + '?text=' + encodeURIComponent(b.dataset.msg));
+</script>
+<div class="faixa-previa">Prévia · não publicada</div>
+</body>
+</html>
